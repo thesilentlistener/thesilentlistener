@@ -7,22 +7,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👂</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👂</text></svg>">
+    <style>
+        /* Temporary basic styles - Full CSS in next message */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans Bengali', sans-serif; background: #f0f9ff; color: #1e293b; }
+        .navbar { padding: 1rem; background: white; position: sticky; top: 0; z-index: 1000; }
+        .page { display: none; padding: 2rem; }
+        .page.active { display: block; }
+        .btn-primary { background: #0ea5e9; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; }
+        .notification { position: fixed; bottom: 20px; right: 20px; background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); display: none; }
+        .notification.show { display: block; }
+    </style>
 </head>
 <body>
-    <!-- নেভিগেশন বার -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#home" class="logo">The Silent Listener</a>
             <div class="nav-links">
-                <a href="#about">লিসেনার সম্পর্কে</a>
-                <a href="#how-it-works">কীভাবে কাজ করে</a>
-                <a href="#sessions">সেশন ও মূল্য</a>
-                <a href="#reading">নীরব পড়াশোনা</a>
-                <a href="#reflections">ভাবনার খাতা</a>
-                <a href="#privacy">গোপনীয়তা</a>
+                <a href="#home">হোম</a>
+                <a href="#about">সম্পর্কে</a>
+                <a href="#how-it-works">কীভাবে</a>
+                <a href="#sessions">সেশন</a>
+                <a href="#reviews">রিভিউ</a>
+                <a href="#share">শেয়ার</a>
+                <a href="#resources">রিসোর্স</a>
                 <button class="theme-toggle" aria-label="থিম পরিবর্তন">
                     <span class="sun-icon">☀️</span>
                     <span class="moon-icon">🌙</span>
@@ -37,15 +48,15 @@
         </div>
     </nav>
 
-    <!-- মোবাইল মেনু -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
         <a href="#home">হোম</a>
-        <a href="#about">লিসেনার সম্পর্কে</a>
-        <a href="#how-it-works">কীভাবে কাজ করে</a>
-        <a href="#sessions">সেশন ও মূল্য</a>
-        <a href="#reading">নীরব পড়াশোনা</a>
-        <a href="#reflections">ভাবনার খাতা</a>
-        <a href="#privacy">গোপনীয়তা</a>
+        <a href="#about">সম্পর্কে</a>
+        <a href="#how-it-works">কীভাবে</a>
+        <a href="#sessions">সেশন</a>
+        <a href="#reviews">রিভিউ</a>
+        <a href="#share">শেয়ার</a>
+        <a href="#resources">রিসোর্স</a>
         <button class="theme-toggle" aria-label="থিম পরিবর্তন">
             <span class="sun-icon">☀️</span>
             <span class="moon-icon">🌙</span>
@@ -53,15 +64,34 @@
         <a href="#start" class="mobile-cta">শুরু করুন</a>
     </div>
 
-    <!-- প্রধান কন্টেন্ট এরিয়া -->
+    <!-- Main Content -->
     <main id="content-area">
         
-        <!-- হোম সেকশন -->
+        <!-- ===== HOME PAGE ===== -->
         <section id="home" class="page active">
             <div class="hero">
                 <div class="hero-content">
                     <h1>সব কথা বলা যায় না<br>কিছু কথা শুধু শোনা দরকার</h1>
                     <p class="subtitle">একটি নিরাপদ, নিশ্চিহ্ন স্থান যেখানে আপনার কথা শুধু শোনা হবে। কোন বিচার নেই, কোন উপদেশ নেই, শুধু মনোযোগ সহকারে শোনা।</p>
+                    
+                    <!-- Social Links -->
+                    <div class="social-profiles">
+                        <p style="margin: 20px 0 10px 0; color: #64748b; font-size: 0.9rem;">
+                            আমার সাথে সরাসরি যোগাযোগ:
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/YOUR_PROFILE" target="_blank" class="social-link fb-profile">
+                                <i class="fab fa-facebook"></i> Facebook Profile
+                            </a>
+                            <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" class="social-link fb-page">
+                                <i class="fab fa-facebook-f"></i> Facebook Page
+                            </a>
+                            <a href="https://t.me/YOUR_USERNAME" target="_blank" class="social-link telegram">
+                                <i class="fab fa-telegram"></i> Telegram
+                            </a>
+                        </div>
+                    </div>
+                    
                     <div class="hero-actions">
                         <button class="btn-primary" onclick="showPage('start')">
                             <i class="fas fa-play-circle"></i> নিরবে শুরু করুন
@@ -88,6 +118,7 @@
                 </div>
             </div>
 
+            <!-- Definition Section -->
             <div class="definition-section">
                 <div class="definition-box what-is">
                     <h2>এই জায়গাটি কী?</h2>
@@ -111,6 +142,40 @@
                 </div>
             </div>
 
+            <!-- Daily Check-in -->
+            <div class="daily-checkin">
+                <h2>আজ আপনি কেমন আছেন?</h2>
+                <div class="mood-selector">
+                    <button class="mood-btn" data-mood="happy">
+                        <span>😊</span>
+                        <span>ভালো</span>
+                    </button>
+                    <button class="mood-btn" data-mood="neutral">
+                        <span>😐</span>
+                        <span>স্বাভাবিক</span>
+                    </button>
+                    <button class="mood-btn" data-mood="sad">
+                        <span>😔</span>
+                        <span>খারাপ</span>
+                    </button>
+                    <button class="mood-btn" data-mood="anxious">
+                        <span>😰</span>
+                        <span>উদ্বিগ্ন</span>
+                    </button>
+                </div>
+                <div class="breathing-exercise">
+                    <h3>১ মিনিটের শ্বাস ব্যায়াম</h3>
+                    <div class="breathing-visual">
+                        <div class="breath-circle"></div>
+                        <p class="breath-instruction">শ্বাস নিন... ধরে রাখুন... ছাড়ুন...</p>
+                    </div>
+                    <button class="btn-secondary" id="start-breathing">
+                        <i class="fas fa-play"></i> শুরু করুন
+                    </button>
+                </div>
+            </div>
+
+            <!-- Emergency Notice -->
             <div class="emergency-notice">
                 <p><strong>গুরুত্বপূর্ণ:</strong> আপনি যদি মানসিক সংকটে থাকেন বা নিজের বা অন্যের জন্য নিরাপত্তাহীনতা বোধ করেন, দয়া করে অবিলম্বে পেশাদার সহায়তা নিন।</p>
                 <p><strong>বাংলাদেশ জাতীয় হেল্পলাইন: <span class="emergency-number">৩৩৩</span></strong></p>
@@ -118,7 +183,7 @@
             </div>
         </section>
 
-        <!-- লিসেনার সম্পর্কে -->
+        <!-- ===== ABOUT PAGE ===== -->
         <section id="about" class="page">
             <div class="page-header">
                 <h1>লিসেনার সম্পর্কে</h1>
@@ -159,7 +224,7 @@
             </div>
         </section>
 
-        <!-- কীভাবে কাজ করে -->
+        <!-- ===== HOW IT WORKS ===== -->
         <section id="how-it-works" class="page">
             <div class="page-header">
                 <h1>কীভাবে কাজ করে</h1>
@@ -219,7 +284,7 @@
             </div>
         </section>
 
-        <!-- সেশন ও মূল্য -->
+        <!-- ===== SESSIONS ===== -->
         <section id="sessions" class="page">
             <div class="page-header">
                 <h1>সেশন ও মূল্য</h1>
@@ -228,7 +293,7 @@
             
             <div class="page-content">
                 <div class="pricing-container">
-                    <!-- ফ্রি সেশন -->
+                    <!-- Free Session -->
                     <div class="pricing-card free">
                         <div class="pricing-header">
                             <h3>পরিচয় সেশন</h3>
@@ -248,7 +313,7 @@
                         <p class="note" style="margin-top: 10px; font-size: 0.9rem;">একবার মাত্র ব্যবহারযোগ্য</p>
                     </div>
                     
-                    <!-- পেইড সেশন ১ -->
+                    <!-- Paid Session 1 -->
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <h3>স্ট্যান্ডার্ড শোনা</h3>
@@ -268,7 +333,7 @@
                         <button class="btn-primary" onclick="showPage('start')">বুক করুন</button>
                     </div>
                     
-                    <!-- পেইড সেশন ২ -->
+                    <!-- Paid Session 2 -->
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <h3>বর্ধিত শোনা</h3>
@@ -309,214 +374,336 @@
             </div>
         </section>
 
-        <!-- নীরব পড়াশোনা -->
-        <section id="reading" class="page">
+        <!-- ===== REVIEWS PAGE ===== -->
+        <section id="reviews" class="page">
             <div class="page-header">
-                <h1>নীরব পড়াশোনা</h1>
-                <p class="subtitle">কিছু কথা শুধু পড়ার জন্য, বিশ্লেষণের জন্য নয়।</p>
+                <h1>👥 মানুষের অভিজ্ঞতা</h1>
+                <p class="subtitle">নিজের অভিজ্ঞতা শেয়ার করুন অথবা অন্যদের কথা পড়ুন</p>
             </div>
             
             <div class="page-content">
-                <div class="books-container">
-                    <div class="book-card">
-                        <div class="book-cover">📖</div>
-                        <div class="book-content">
-                            <h3>চুপ থাকার ভাষা</h3>
-                            <p class="book-quote">"কিছু মানুষ কথা বলে না। চুপ থাকাটাই তাদের ভাষা। সেই ভাষা বোঝার চেষ্টা করা উচিত, ভাঙ্গার চেষ্টা করা নয়।"</p>
-                            <p class="book-note">— কোনো বিশ্লেষণ নয়, শুধু পর্যবেক্ষণ। এই লাইনটি কোনো নির্দিষ্ট বই থেকে নয়, অভিজ্ঞতা থেকে উঠে এসেছে।</p>
+                <!-- Write Review -->
+                <div class="write-review">
+                    <h3>আপনার অভিজ্ঞতা শেয়ার করুন</h3>
+                    
+                    <div class="privacy-options">
+                        <div class="privacy-option active" data-privacy="anonymous">
+                            <div class="privacy-icon">👤</div>
+                            <div class="privacy-details">
+                                <h4>নামহীন রিভিউ</h4>
+                                <p>আপনার নাম দেখানো হবে না</p>
+                            </div>
+                        </div>
+                        
+                        <div class="privacy-option" data-privacy="named">
+                            <div class="privacy-icon">🏷️</div>
+                            <div class="privacy-details">
+                                <h4>নাম সহ রিভিউ</h4>
+                                <p>আপনার নাম এবং একটি ইমোজি দেখানো হবে</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="book-card">
-                        <div class="book-cover">📚</div>
-                        <div class="book-content">
-                            <h3>শব্দহীন কথোপকথন</h3>
-                            <p class="book-quote">"শোনা এবং শুনতে পাওয়ার মধ্যে পার্থক্য রয়েছে। প্রথমটি শারীরিক, দ্বিতীয়টি মানসিক। কখনো কখনো আমরা শুনি কিন্তু শুনতে পাই না।"</p>
-                            <p class="book-note">— উপদেশ নয়, প্রতিফলন। এই ধারণাটি বিভিন্ন সংস্কৃতির লোককথায় পাওয়া যায়।</p>
+                    <div class="named-options" style="display: none;">
+                        <div class="form-group">
+                            <label for="reviewer-name">আপনার নাম (ঐচ্ছিক)</label>
+                            <input type="text" id="reviewer-name" placeholder="একটি নাম বা ছদ্মনাম">
+                        </div>
+                        
+                        <div class="emoji-selection">
+                            <p>আপনার মনের অবস্থা বেছে নিন:</p>
+                            <div class="emoji-options">
+                                <button class="emoji-option" data-emoji="😊">😊</button>
+                                <button class="emoji-option" data-emoji="🙂">🙂</button>
+                                <button class="emoji-option" data-emoji="😐">😐</button>
+                                <button class="emoji-option" data-emoji="😌">😌</button>
+                                <button class="emoji-option" data-emoji="🤔">🤔</button>
+                                <button class="emoji-option" data-emoji="😔">😔</button>
+                                <button class="emoji-option" data-emoji="🥺">🥺</button>
+                                <button class="emoji-option" data-emoji="❤️">❤️</button>
+                                <button class="emoji-option" data-emoji="🙏">🙏</button>
+                                <button class="emoji-option" data-emoji="✨">✨</button>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="book-card">
-                        <div class="book-cover">📓</div>
-                        <div class="book-content">
-                            <h3>অনুক্ত কথার ওজন</h3>
-                            <p class="book-quote">"যে কথাগুলো বলা হয় না, সেগুলোও বোঝা বহন করে। সেই বোঝা কখনো কখনো বলা কথার চেয়েও ভারী হয়।"</p>
-                            <p class="book-note">— সমাধান নয়, স্বীকৃতি। এই উপলব্ধিটি থেরাপিস্টদের লেখায় পাওয়া যায়।</p>
+                    <div class="form-group">
+                        <textarea id="review-text" rows="4" placeholder="আপনার অভিজ্ঞতা লিখুন... (সর্বোচ্চ ৫০০ শব্দ)" maxlength="500"></textarea>
+                        <div class="char-count">০/৫০০</div>
+                    </div>
+                    
+                    <div class="review-actions">
+                        <button class="btn-primary" id="submit-review">
+                            <i class="fas fa-paper-plane"></i> রিভিউ জমা দিন
+                        </button>
+                        <p class="note">আপনার রিভিউ গুগল শীটসে সংরক্ষণ করা হবে। আপনি চাইলে পরে ডিলিট করতে পারবেন।</p>
+                    </div>
+                </div>
+                
+                <!-- Reviews Display -->
+                <div class="reviews-container">
+                    <h3>সবার রিভিউ</h3>
+                    <div class="reviews-filter">
+                        <button class="filter-btn active" data-filter="all">সব</button>
+                        <button class="filter-btn" data-filter="recent">সাম্প্রতিক</button>
+                        <button class="filter-btn" data-filter="helpful">সবচেয়ে উপকারী</button>
+                    </div>
+                    
+                    <div class="reviews-grid">
+                        <!-- Reviews will be loaded dynamically -->
+                        <div class="loading-reviews">
+                            <div class="spinner"></div>
+                            <p>রিভিউ লোড করা হচ্ছে...</p>
                         </div>
                     </div>
                     
-                    <div class="book-card">
-                        <div class="book-cover">📘</div>
-                        <div class="book-content">
-                            <h3>নীরবতার শিল্প</h3>
-                            <p class="book-quote">"কখনো কখনো নীরবতাই সবচেয়ে গভীর উত্তর। যেখানে শব্দ ব্যর্থ হয়, সেখানে নীরবতা সফল হয়।"</p>
-                            <p class="book-note">— মতামত নয়, উপলব্ধি। পূর্ব ও পশ্চিম উভয় দর্শনে নীরবতার গুরুত্ব রয়েছে।</p>
+                    <!-- Sample Review Template (hidden) -->
+                    <div class="review-card-template" style="display: none;">
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar" style="background-color: #0ea5e9;">
+                                    😊
+                                </div>
+                                <div class="reviewer-details">
+                                    <h4 class="reviewer-name">নামহীন ব্যক্তি</h4>
+                                    <small class="review-date">আজ</small>
+                                    <span class="privacy-badge">👤 নামহীন</span>
+                                </div>
+                            </div>
+                            
+                            <div class="review-content">
+                                <p>"এই জায়গাটি আমাকে অনেক সাহায্য করেছে। কখনো কখনো শুধু কেউ শুনলেই যথেষ্ট।"</p>
+                            </div>
+                            
+                            <div class="review-stats">
+                                <button class="helpful-btn">
+                                    <span>👍</span> 
+                                    <span class="helpful-count">১২</span>
+                                </button>
+                                <span class="review-time">২ ঘন্টা আগে</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SHARE PAGE (Anonymous Sharing) ===== -->
+        <section id="share" class="page">
+            <div class="page-header">
+                <h1>💭 কমিউনিটি শেয়ারিং</h1>
+                <p class="subtitle">আপনার না বলা কথা শেয়ার করুন সম্পূর্ণ নামহীনভাবে</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Share Form -->
+                <div class="share-form-container">
+                    <div class="share-instruction">
+                        <h3>লিখে ফেলুন এবং ছেড়ে দিন</h3>
+                        <p>এটি একটি ডিজিটাল কাগজের টুকরো। লিখুন, সাবমিট করুন, এবং কথাগুলো চলে যাবে।</p>
+                    </div>
+                    
+                    <div class="share-options">
+                        <div class="share-option active" data-share="private">
+                            <div class="share-icon">🔒</div>
+                            <div class="share-details">
+                                <h4>শুধু আমার জন্য</h4>
+                                <p>আপনার ডিভাইসে সংরক্ষণ হবে</p>
+                            </div>
+                        </div>
+                        
+                        <div class="share-option" data-share="public">
+                            <div class="share-icon">🌍</div>
+                            <div class="share-details">
+                                <h4>সবার সাথে শেয়ার</h4>
+                                <p>নামহীনভাবে সবাই দেখতে পাবে</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="book-card">
-                        <div class="book-cover">📙</div>
-                        <div class="book-content">
-                            <h3>ভালোবাসার নীরবতা</h3>
-                            <p class="book-quote">"ভালোবাসা সবসময় কথা বলে না। কখনো কখনো তা নীরবতায় প্রকাশ পায়। সেই নীরবতাই সবচেয়ে জোরে কথা বলে।"</p>
-                            <p class="book-note">— ব্যাখ্যা নয়, বর্ণনা। মানবিক সম্পর্কে নীরবতার ভূমিকা নিয়ে চিন্তা।</p>
+                    <div class="form-group">
+                        <textarea id="share-text" rows="6" placeholder="আপনার না বলা কথা, ভয়, আনন্দ, দ্বন্দ্ব, বা শুধু আজকের দিনের কথা... কোনো কিছুই হতে পারে।"></textarea>
+                        <div class="writing-stats">
+                            <span id="share-word-count">শব্দ: ০</span>
+                            <span id="share-char-count">অক্ষর: ০</span>
+                            <span id="share-time-count">সময়: ০:০০</span>
                         </div>
                     </div>
                     
-                    <div class="book-card">
-                        <div class="book-cover">📕</div>
-                        <div class="book-content">
-                            <h3>ব্যথার শব্দহীনতা</h3>
-                            <p class="book-quote">"গভীর ব্যথা কখনো কখনো শব্দহীন হয়। যারা কান্না করতে পারে না, তাদের ব্যথা সবচেয়ে গভীরে থাকে।"</p>
-                            <p class="book-note">— সমাধানের প্রস্তাব নয়, সহানুভূতির অভিব্যক্তি। মানসিক স্বাস্থ্য সাহিত্যে এই ধারণা পাওয়া যায়।</p>
+                    <div class="share-actions">
+                        <button class="btn-secondary" id="clear-share">
+                            <i class="fas fa-trash"></i> মুছুন
+                        </button>
+                        <button class="btn-outline" id="save-share">
+                            <i class="fas fa-download"></i> সংরক্ষণ করুন
+                        </button>
+                        <button class="btn-primary" id="submit-share">
+                            <i class="fas fa-paper-plane"></i> কথাগুলো ছেড়ে দিন
+                        </button>
+                    </div>
+                    
+                    <div class="share-info">
+                        <p><strong>⚡ আপনার লেখার গোপনীয়তা:</strong></p>
+                        <ul>
+                            <li><strong>🔒 প্রাইভেট মোড:</strong> শুধু আপনার ব্রাউজারে থাকে</li>
+                            <li><strong>🌍 পাবলিক মোড:</strong> নামহীনভাবে সবার সাথে শেয়ার হয়</li>
+                            <li><strong>🚫 কোনো রেকর্ডিং নেই:</strong> কখনোই আপনার আসল নাম সংরক্ষণ করা হয় না</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Public Shares Wall -->
+                <div class="shares-wall">
+                    <h3>সবার কথা</h3>
+                    <div class="wall-filters">
+                        <button class="wall-filter active" data-time="today">আজ</button>
+                        <button class="wall-filter" data-time="week">এই সপ্তাহ</button>
+                        <button class="wall-filter" data-time="all">সব সময়</button>
+                    </div>
+                    
+                    <div class="shares-grid">
+                        <!-- Public shares will be loaded here -->
+                        <div class="share-card">
+                            <div class="share-content">
+                                <p>"কথা না বলেও কথা বলা যায়। নীরবতাই কখনো কখনো সবচেয়ে বড় কথা।"</p>
+                            </div>
+                            <div class="share-meta">
+                                <span class="share-emoji">💭</span>
+                                <span class="share-time">২ ঘন্টা আগে</span>
+                                <button class="heart-btn">❤️ <span>২৪</span></button>
+                            </div>
+                        </div>
+                        
+                        <div class="share-card">
+                            <div class="share-content">
+                                <p>"আজ প্রথমবার কাউকে কিছু বললাম। ভয় ছিল, কিন্তু এখন ভালো লাগছে।"</p>
+                            </div>
+                            <div class="share-meta">
+                                <span class="share-emoji">😊</span>
+                                <span class="share-time">৫ ঘন্টা আগে</span>
+                                <button class="heart-btn">❤️ <span>১৮</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RESOURCES PAGE ===== -->
+        <section id="resources" class="page">
+            <div class="page-header">
+                <h1>📚 রিসোর্স লাইব্রেরি</h1>
+                <p class="subtitle">প্রয়োজনীয় তথ্য, গাইডলাইন এবং সহায়তা</p>
+            </div>
+            
+            <div class="page-content">
+                <!-- Emergency Resources -->
+                <div class="resources-section emergency">
+                    <h3>🆘 জরুরি সহায়তা</h3>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">📞</div>
+                            <div class="resource-content">
+                                <h4>জাতীয় হেল্পলাইন</h4>
+                                <p class="resource-number">৩৩৩</p>
+                                <p>২৪/৭ বিনামূল্যে মানসিক স্বাস্থ্য সহায়তা</p>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">🏥</div>
+                            <div class="resource-content">
+                                <h4>মানসিক স্বাস্থ্য ইনস্টিটিউট</h4>
+                                <p class="resource-number">০১৭৮০৪৪৯০৮০</p>
+                                <p>ঢাকা, পাবনা ও অন্যান্য শাখা</p>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">🤝</div>
+                            <div class="resource-content">
+                                <h4>স্নেহ হেল্পলাইন</h4>
+                                <p class="resource-number">০৮০০০০৮৮৮৮৮</p>
+                                <p>তরুণদের জন্য মানসিক স্বাস্থ্য সহায়তা</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="reading-disclaimer">
-                    <p><strong>দ্রষ্টব্য:</strong> এখানে কোনো বইয়ের সম্পূর্ণ অংশ বা দীর্ঘ উদ্ধৃতি দেওয়া হয় না। শুধুমাত্র সংক্ষিপ্ত, চিন্তা উদ্দীপক লাইন যুক্ত করা হয় যা পড়ে নিজের মতো করে ভাবতে পারেন।</p>
-                    <p class="note">এই লাইনগুলো বিভিন্ন উৎস থেকে সংগ্রহ করা হয়েছে, এবং সেগুলোর উদ্দেশ্য পাঠককে নিজের অভিজ্ঞতার আলোকে চিন্তা করতে উৎসাহিত করা।</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ভাবনার খাতা -->
-        <section id="reflections" class="page">
-            <div class="page-header">
-                <h1>ভাবনার খাতা</h1>
-                <p class="subtitle">প্রতিফলন, উপদেশ নয়। প্রশ্ন, উত্তর নয়।</p>
-            </div>
-            
-            <div class="page-content">
-                <div class="reflections-container">
-                    <article class="reflection">
-                        <h3>কিছু কথা না বলাই থাকে</h3>
-                        <p class="reflection-meta">সেপ্টেম্বর ২০২৪ | চুপ থাকা</p>
-                        <div class="reflection-content">
-                            <p>কখনো ভেবেছেন, কেন কিছু কথা বলা হয় না? হয়তো ভয় থেকে নয়, দুর্বলতা থেকে নয়। শুধু এই কারণে যে কিছু অনুভূতি শব্দের চেয়ে বড়। কিছু অভিজ্ঞতা ভাষার সীমার বাইরে।</p>
-                            <p>যখন আমরা কথা বলি না, তখনও আমরা যোগাযোগ করি। নীরবতাও একটি বার্তা। সে বার্তাটি হতে পারে: "আমি এখন কথা বলতে চাই না," বা "আমার কথাগুলো এখনও গুছিয়ে উঠিনি," বা শুধুই "আমি এখানে আছি।"</p>
-                            <p>আমরা প্রায়ই চুপ থাকাকে নেতিবাচক হিসেবে দেখি। কিন্তু চুপ থাকা একটি সক্রিয় অবস্থাও হতে পারে — চিন্তা করার অবস্থা, হজম করার অবস্থা, উপস্থিত থাকার অবস্থা।</p>
+                <!-- Self-Help Resources -->
+                <div class="resources-section self-help">
+                    <h3>🧘‍♀️ স্ব-সহায়তা রিসোর্স</h3>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">📖</div>
+                            <div class="resource-content">
+                                <h4>শ্বাস ব্যায়াম গাইড</h4>
+                                <p>৪-৭-৮ টেকনিক, বক্স ব্রিদিং, ডিপ ব্রিদিং</p>
+                                <a href="#" class="resource-link">ডাউনলোড গাইড</a>
+                            </div>
                         </div>
-                        <div class="reflection-questions">
-                            <p><em>প্রশ্ন: যদি আপনার কাছে বলা না হওয়া একটি কথা থাকত, তা কী হত? কিংবা, কখন আপনি সবচেয়ে বেশি অনুভব করেছেন যে আপনার কথা বলা উচিত নয়?</em></p>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">📓</div>
+                            <div class="resource-content">
+                                <h4>জার্নালিং টেমপ্লেট</h4>
+                                <p>মুড ট্র্যাকিং, গ্র্যাটিচুড জার্নাল, থট ডাম্প</p>
+                                <a href="#" class="resource-link">ডাউনলোড টেমপ্লেট</a>
+                            </div>
                         </div>
-                    </article>
-                    
-                    <article class="reflection">
-                        <h3>সব শোনার উত্তর হয় না</h3>
-                        <p class="reflection-meta">অক্টোবর ২০২৪ | শোনা</p>
-                        <div class="reflection-content">
-                            <p>আমরা প্রায়ই শোনার সময় উত্তর খুঁজি। সমস্যা সমাধানের উপায় খুঁজি। কিন্তু কিছু কথার উত্তর নেই। কিছু কথার শুধু শ্রোতা দরকার।</p>
-                            <p>উত্তর না দেওয়াও একটি যোগাযোগ। এটি বলে: "আপনার অনুভূতি বৈধ, এমনকি যদি আমার কাছে এর কোনো সমাধান না থাকে।" এটি বলে: "আমি আপনার সাথে আছি, আপনার সমাধান দিতে না পারলেও।"</p>
-                            <p>কখনো কখনো সমাধান দেওয়ার চেষ্টা আসলে বার্তাটি হয়: "আপনার সমস্যা এতটাই ছোট যে এর একটি সহজ সমাধান আছে।" কিন্তু অনেক সমস্যার সহজ সমাধান নেই। অনেক ব্যথার দ্রুত নিরাময় নেই।</p>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">🎵</div>
+                            <div class="resource-content">
+                                <h4>সাউন্ডস্কেপ</h4>
+                                <p>বৃষ্টি, সমুদ্র, বন - শান্তির জন্য</p>
+                                <button class="btn-outline play-sound" data-sound="rain">
+                                    <i class="fas fa-play"></i> শুনুন
+                                </button>
+                            </div>
                         </div>
-                        <div class="reflection-questions">
-                            <p><em>প্রশ্ন: কখন শেষবার আপনি কোনো উত্তর ছাড়াই শুনেছেন? কিংবা, কখন শেষবার আপনি এমন কিছু বলেছেন যার উত্তর আপনি চাননি?</em></p>
-                        </div>
-                    </article>
-                    
-                    <article class="reflection">
-                        <h3>বিচারহীন শোনা</h3>
-                        <p class="reflection-meta">নভেম্বর ২০২৪ | নিরাপত্তা</p>
-                        <div class="reflection-content">
-                            <p>বিচারহীনতা মানে সম্মতি নয়। এটি মানে নিরাপদ স্থান তৈরি করা যেখানে মানুষ নিজের সত্য কথা বলতে পারে, ভয় ছাড়াই। যেখানে মানুষ বলতে পারে: "আমি এটা অনুভব করি," এবং উত্তর পায়: "আপনি এটা অনুভব করেন।" না যে "আপনার এটা অনুভব করা উচিত নয়।"</p>
-                            <p>বিচারহীন শোনা একটি দক্ষতা, স্বভাব নয়। এটি সচেতন প্রচেষ্টা চায়। কারণ আমাদের মস্তিষ্ক স্বভাবতই বিচার করে। আমরা শুনি এবং সঙ্গে সঙ্গে মূল্যায়ন করি: এটি সঠিক নাকি ভুল, ভালো নাকি খারাপ, যৌক্তিক নাকি অযৌক্তিক।</p>
-                            <p>বিচারহীন শোনার অর্থ হচ্ছে সেই স্বাভাবিক প্রতিক্রিয়াটিকে থামানো। শুধু শোনা। শুধু উপস্থিত থাকা।</p>
-                        </div>
-                        <div class="reflection-questions">
-                            <p><em>প্রশ্ন: আপনি কখন নিজেকে বিচারহীনভাবে শুনতে পেরেছেন? কিংবা, কখন শেষবার আপনি এমন কথা বলেছেন যা বলার পরে আপনি নিজের বিচারের ভয় পেয়েছেন?</em></p>
-                        </div>
-                    </article>
-                    
-                    <article class="reflection">
-                        <h3>শব্দের আগে ও পরে</h3>
-                        <p class="reflection-meta">ডিসেম্বর ২০২৪ | স্থান</p>
-                        <div class="reflection-content">
-                            <p>প্রতিটি কথার আগে ও পরে স্থান থাকে। সেই স্থানটিও কথোপকথনের অংশ। আমরা প্রায়ই সেই স্থানগুলোতে অস্বস্তি বোধ করি। আমরা ভরাট করতে চাই। কথা বলতে চাই।</p>
-                            <p>কিন্তু সেই স্থানগুলোতে গুরুত্বপূর্ণ কিছু ঘটে। চিন্তা গুছিয়ে উঠে। অনুভূতি স্ফটিকের মতো জমা হয়। শ্বাস নেওয়া হয়। উপস্থিতি প্রতিষ্ঠিত হয়।</p>
-                            <p>একজন শ্রোতার কাজ শুধু কথা শোনা নয়, সেই স্থানগুলোকেও সম্মান করা। সেই নীরবতাগুলোতে স্বাচ্ছন্দ্য বোধ করা।</p>
-                        </div>
-                        <div class="reflection-questions">
-                            <p><em>প্রশ্ন: আপনি কি কথোপকথনের নীরব মুহূর্তগুলিতে স্বাচ্ছন্দ্য বোধ করেন? না কি সেগুলো ভরাট করতে চান?</em></p>
-                        </div>
-                    </article>
+                    </div>
                 </div>
                 
-                <div class="reflections-note">
-                    <p><strong>লক্ষ্য করুন:</strong> এখানে কোনো উপদেশ, টিপস বা গাইডলাইন নেই। শুধুমাত্র ব্যক্তিগত প্রতিফলন এবং প্রশ্ন আছে। এই প্রশ্নগুলোর "সঠিক" উত্তর নেই। উত্তর আছে আপনার অভিজ্ঞতায়, আপনার উপলব্ধিতে।</p>
-                    <p class="note">আপনি চাইলে এই প্রশ্নগুলো নিয়ে চিন্তা করতে পারেন, লিখতে পারেন, কিংবা সম্পূর্ণ উপেক্ষা করতে পারেন।</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- গোপনীয়তা -->
-        <section id="privacy" class="page">
-            <div class="page-header">
-                <h1>গোপনীয়তা ও নৈতিকতা</h1>
-                <p class="subtitle">আপনার গোপনীয়তা আমাদের অঙ্গীকার।</p>
-            </div>
-            
-            <div class="page-content">
-                <div class="privacy-container">
-                    <div class="privacy-section">
-                        <h3>গোপনীয়তা নীতি</h3>
-                        <ul>
-                            <li><strong>কোনো নাম নয়:</strong> আপনার আসল নাম জিজ্ঞাসা করা হয় না। আপনি ছদ্মনাম ব্যবহার করতে পারেন, বা শুধু "আপনি" বলে ডাকা যেতে পারেন।</li>
-                            <li><strong>কোনো রেকর্ডিং নয়:</strong> কথোপকথন রেকর্ড বা সংরক্ষণ করা হয় না। কোনো অডিও ফাইল তৈরি হয় না।</li>
-                            <li><strong>কোনো শেয়ারিং নয়:</strong> আপনার কথা তৃতীয় পক্ষের সাথে শেয়ার করা হয় না। কোনো গবেষণা বা প্রশিক্ষণের জন্য ব্যবহার করা হয় না।</li>
-                            <li><strong>ডেটা ন্যূনতম:</strong> শুধুমাত্র প্রয়োজনীয় প্রযুক্তিগত ডেটা সংরক্ষণ করা হয় (যেমন: ওয়েবসাইট ভিজিটর সংখ্যা)।</li>
-                            <li><strong>অটো ডিলিট:</strong> প্রযুক্তিগত লগগুলো স্বয়ংক্রিয়ভাবে ৩০ দিন পর মুছে ফেলা হয়।</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="privacy-section">
-                        <h3>নৈতিক সীমানা</h3>
-                        <ul>
-                            <li><strong>উপদেশ নয়:</strong> যদি না আপনি স্পষ্টভাবে চান, কোনো উপদেশ দেওয়া হয় না।</li>
-                            <li><strong>নির্ভরশীলতা নয়:</strong> নিয়মিত নির্ভরশীলতা তৈরি করা এড়ানো হয়।</li>
-                            <li><strong>সীমানা সম্মান:</strong> ব্যক্তিগত প্রশ্ন বা প্রোবিং করা হয় না।</li>
-                            <li><strong>সময়সীমা:</strong> সেশনগুলোর নির্দিষ্ট সময়সীমা থাকে।</li>
-                            <li><strong>রেফারেল:</strong> প্রয়োজন হলে পেশাদার সহায়তার জন্য রেফার দেওয়া হয়।</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="privacy-section">
-                        <h3>প্রযুক্তিগত নিরাপত্তা</h3>
-                        <ul>
-                            <li><strong>কোনো ট্র্যাকিং নয়:</strong> এই সাইটে বিজ্ঞাপন বা ব্যবহারকারী ট্র্যাকিং নেই।</li>
-                            <li><strong>এনক্রিপশন:</strong> টেলিগ্রাম এন্ড-টু-এন্ড এনক্রিপশন ব্যবহার করে।</li>
-                            <li><strong>ডেটা ধারণ:</strong> আপনার লেখা শুধু আপনার ডিভাইসে থাকে (যখন আপনি সাইটে লিখেন)।</li>
-                            <li><strong>নো লগ পলিসি:</strong> সার্ভারে কোনো কথোপকথনের লগ রাখা হয় না।</li>
-                            <li><strong>সিকিউর কানেকশন:</strong> HTTPS ব্যবহার করে সমস্ত ডেটা এনক্রিপ্টেড থাকে।</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="privacy-notice">
-                        <h3>গুরুত্বপূর্ণ বিধিনিষেধ</h3>
-                        <p>এই পরিষেবা নিম্নলিখিত ক্ষেত্রে উপযুক্ত <strong>নয়</strong>:</p>
-                        <ul class="restrictions">
-                            <li>গুরুতর মানসিক স্বাস্থ্য সংকট (আত্মহত্যার চিন্তা, সাইকোসিস)</li>
-                            <li>আত্মহত্যা বা নিজের ক্ষতির আশঙ্কা</li>
-                            <li>অন্যের প্রতি ক্ষতিকর আচরণের আশঙ্কা</li>
-                            <li>মাদকাসক্তি বা গুরুতর মানসিক রোগ</li>
-                            <li>তীব্র মানসিক ব্যথা যা পেশাদার হস্তক্ষেপ প্রয়োজন</li>
-                            <li>আপাত বিপজ্জনক পরিস্থিতি</li>
-                        </ul>
-                        <p>এই ক্ষেত্রে, দয়া করে অবিলম্বে পেশাদার সহায়তা নিন।</p>
-                        <div class="emergency-contacts">
-                            <p><strong>জরুরি যোগাযোগ:</strong></p>
-                            <ul>
-                                <li>জাতীয় হেল্পলাইন: <strong>৩৩৩</strong></li>
-                                <li>মানসিক স্বাস্থ্য ইনস্টিটিউট, ঢাকা: <strong>০১৭৮০৪৪৯০৮০</strong></li>
-                                <li>স্নেহ (মানসিক স্বাস্থ্য হেল্পলাইন): <strong>০৮০০০০৮৮৮৮৮</strong></li>
-                            </ul>
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h3>❓ সচরাচর জিজ্ঞাসা</h3>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                এটি কি থেরাপি বা কাউন্সেলিং?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>না, এটি কোন থেরাপি বা কাউন্সেলিং সেবা নয়। এটি শুধুমাত্র একটি শ্রবণ পরিষেবা যেখানে আপনার কথা শুধু শোনা হবে, কোন চিকিৎসা বা উপদেশ দেওয়া হবে না।</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                গোপনীয়তা কতটা নিশ্চিত?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>আমরা আপনার কোন ব্যক্তিগত তথ্য সংগ্রহ করি না। না বলা কথাগুলো শুধু আপনার ডিভাইসে থাকে অথবা নামহীনভাবে শেয়ার করা হয়। কোন তথ্য তৃতীয় পক্ষের সাথে শেয়ার করা হয় না।</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                জরুরি অবস্থায় কী করব?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>জরুরি অবস্থায় অবিলম্বে জাতীয় হেল্পলাইন ৩৩৩ এ কল করুন অথবা নিকটস্থ হাসপাতালে যোগাযোগ করুন। এই সেবা জরুরি সংকটের জন্য নয়।</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- শুরু করুন -->
+        <!-- ===== START PAGE ===== -->
         <section id="start" class="page">
             <div class="page-header">
                 <h1>শুরু করুন</h1>
@@ -643,55 +830,42 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- কথার জায়গা (টেক্সট এরিয়া) -->
-                <div class="writing-space">
-                    <h3>কথাগুলো লিখে ফেলুন</h3>
-                    <p class="subtitle">কোনো উত্তর আশা করবেন না। শুধু লিখুন এবং ছেড়ে দিন। এটি একটি ডিজিটাল কাগজের টুকরো মাত্র।</p>
-                    
-                    <div class="writing-container">
-                        <textarea id="free-writing" placeholder="আপনার না বলা কথা, ভয়, আনন্দ, দ্বন্দ্ব, বা শুধু আজকের দিনের কথা... কোনো কিছুই হতে পারে। আপনি যখন লিখবেন, এটি শুধু আপনার স্ক্রিনে থাকবে। সাবমিট করলে এটি মুছে যাবে। লিখতে থাকুন, থামার প্রয়োজন নেই..."></textarea>
-                        
-                        <div class="writing-stats">
-                            <span id="word-count">শব্দ: ০</span>
-                            <span id="char-count">অক্ষর: ০</span>
-                            <span id="time-count">সময়: ০:০০</span>
-                        </div>
-                        
-                        <div class="writing-controls">
-                            <button id="clear-writing" class="btn-secondary">
-                                <i class="fas fa-trash"></i> মুছুন
-                            </button>
-                            <button id="save-writing" class="btn-outline">
-                                <i class="fas fa-download"></i> সংরক্ষণ করুন
-                            </button>
-                            <button id="submit-writing" class="btn-primary">
-                                <i class="fas fa-paper-plane"></i> কথাগুলো ছেড়ে দিন
-                            </button>
-                        </div>
-                        
-                        <div class="writing-info">
-                            <p><strong>⚡ আপনার লেখা <strong>কোনো সার্ভারে সংরক্ষণ করা হয় না</strong>। এটি শুধু আপনার ব্রাউজারে থাকে এবং পৃষ্ঠা রিফ্রেশ করলে মুছে যাবে।</strong></p>
-                            <p class="note">সংরক্ষণ করুন বাটনে ক্লিক করলে লেখাটি আপনার ডিভাইসে ডাউনলোড হবে। "ছেড়ে দিন" বাটনে ক্লিক করলে লেখাটি শুধু মুছে যাবে — কারো কাছে পাঠানো হবে না।</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- ফুটার -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#home">হোম</a>
-                <a href="#about">লিসেনার সম্পর্কে</a>
-                <a href="#how-it-works">কীভাবে কাজ করে</a>
-                <a href="#sessions">সেশন ও মূল্য</a>
-                <a href="#reading">নীরব পড়াশোনা</a>
-                <a href="#reflections">ভাবনার খাতা</a>
-                <a href="#privacy">গোপনীয়তা</a>
+                <a href="#about">সম্পর্কে</a>
+                <a href="#how-it-works">কীভাবে</a>
+                <a href="#sessions">সেশন</a>
+                <a href="#reviews">রিভিউ</a>
+                <a href="#share">শেয়ার</a>
+                <a href="#resources">রিসোর্স</a>
+            </div>
+            
+            <!-- Direct Contact in Footer -->
+            <div class="direct-contact">
+                <h4>সরাসরি যোগাযোগ</h4>
+                <div class="contact-options">
+                    <a href="https://www.facebook.com/YOUR_PROFILE" target="_blank" class="contact-option">
+                        <span class="icon">👤</span>
+                        <span>Facebook Profile</span>
+                    </a>
+                    <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" class="contact-option">
+                        <span class="icon">📘</span>
+                        <span>Facebook Page</span>
+                    </a>
+                    <a href="https://t.me/YOUR_USERNAME" target="_blank" class="contact-option">
+                        <span class="icon">✈️</span>
+                        <span>Telegram</span>
+                    </a>
+                </div>
+                <p class="note">সেশন বুকিং ছাড়াও সরাসরি বার্তা পাঠাতে পারেন</p>
             </div>
             
             <div class="emergency-footer">
@@ -713,658 +887,118 @@
         </div>
     </footer>
 
-    <!-- নোটিফিকেশন এলিমেন্ট -->
+    <!-- ===== NOTIFICATION ===== -->
     <div id="notification" class="notification"></div>
     
-    <!-- লোডিং ওভারলে -->
+    <!-- ===== LOADING OVERLAY ===== -->
     <div id="loading-overlay" class="loading-overlay">
         <div class="spinner"></div>
         <p style="color: white; margin-top: 20px;">প্রক্রিয়াকরণ হচ্ছে...</p>
     </div>
 
-    <!-- জাভাস্ক্রিপ্ট -->
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
+        // Basic functionality for now - Full JS in separate file
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.location.hash = pageId;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Close mobile menu
+            document.querySelector('.menu-toggle').classList.remove('active');
+            document.querySelector('.mobile-menu').classList.remove('active');
+        }
         
-        // ===== কনফিগারেশন =====
-        const CONFIG = {
-            // আপনার Google Apps Script URL এখানে বসান
-            GOOGLE_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyPzg1wg9SQGyQdjc0CZIH65MtbCxg5REwkTImSV41c1unOk7ZNYWtfYysMWVLyqUXa/exec",
-            
-            // অ্যাপ সেটিংস
-            APP_NAME: "The Silent Listener",
-            VERSION: "1.0.0",
-            AUTO_SAVE_INTERVAL: 10000, // 10 seconds
-            MAX_SESSION_HISTORY: 50,
-            
-            // নোটিফিকেশন সেটিংস
-            NOTIFICATION_DURATION: 5000, // 5 seconds
-            NOTIFICATION_TYPES: {
-                INFO: 'info',
-                SUCCESS: 'success',
-                ERROR: 'error',
-                WARNING: 'warning'
-            },
-            
-            // থিম সেটিংস
-            THEMES: {
-                LIGHT: 'light',
-                DARK: 'dark'
-            }
-        };
-
-        // ===== অ্যাপ স্টেট ম্যানেজমেন্ট =====
-        class AppState {
-            constructor() {
-                this.currentPage = 'home';
-                this.userSession = {
-                    name: localStorage.getItem('userName') || '',
-                    theme: localStorage.getItem('theme') || CONFIG.THEMES.LIGHT,
-                    sessionHistory: JSON.parse(localStorage.getItem('sessionHistory')) || [],
-                    lastVisit: localStorage.getItem('lastVisit') || null
-                };
-                this.notifications = [];
-                this.writingStartTime = null;
-                this.wordCountInterval = null;
-            }
-            
-            saveToLocalStorage() {
-                localStorage.setItem('userName', this.userSession.name);
-                localStorage.setItem('theme', this.userSession.theme);
-                localStorage.setItem('sessionHistory', JSON.stringify(this.userSession.sessionHistory));
-                localStorage.setItem('lastVisit', new Date().toISOString());
-            }
-            
-            addToHistory(pageId) {
-                this.userSession.sessionHistory.push({
-                    page: pageId,
-                    timestamp: new Date().toISOString()
-                });
-                
-                if (this.userSession.sessionHistory.length > CONFIG.MAX_SESSION_HISTORY) {
-                    this.userSession.sessionHistory.shift();
-                }
-                
-                this.saveToLocalStorage();
-            }
-        }
-
-        // ===== ডিওএম ম্যানেজমেন্ট =====
-        class DOMManager {
-            constructor() {
-                this.elements = {
-                    notification: document.getElementById('notification'),
-                    loadingOverlay: document.getElementById('loading-overlay'),
-                    themeToggle: document.querySelector('.theme-toggle'),
-                    mobileThemeToggle: document.querySelector('.mobile-menu .theme-toggle'),
-                    menuToggle: document.querySelector('.menu-toggle'),
-                    mobileMenu: document.querySelector('.mobile-menu'),
-                    freeWriting: document.getElementById('free-writing'),
-                    sessionForm: document.getElementById('session-form')
-                };
-                
-                this.wordCountEl = document.getElementById('word-count');
-                this.charCountEl = document.getElementById('char-count');
-                this.timeCountEl = document.getElementById('time-count');
-            }
-            
-            showNotification(message, type = CONFIG.NOTIFICATION_TYPES.INFO) {
-                const notification = this.elements.notification;
-                notification.textContent = message;
-                notification.className = `notification ${type} show`;
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, CONFIG.NOTIFICATION_DURATION);
-            }
-            
-            showLoading() {
-                this.elements.loadingOverlay.classList.add('active');
-            }
-            
-            hideLoading() {
-                this.elements.loadingOverlay.classList.remove('active');
-            }
-            
-            updateWritingStats(text) {
-                if (!text) {
-                    this.wordCountEl.textContent = 'শব্দ: ০';
-                    this.charCountEl.textContent = 'অক্ষর: ০';
-                    return;
-                }
-                
-                const words = text.trim().split(/\s+/).filter(word => word.length > 0);
-                const characters = text.length;
-                
-                this.wordCountEl.textContent = `শব্দ: ${words.length}`;
-                this.charCountEl.textContent = `অক্ষর: ${characters}`;
-                
-                // সময় আপডেট
-                if (!appState.writingStartTime) {
-                    appState.writingStartTime = new Date();
-                }
-                
-                const now = new Date();
-                const diffMs = now - appState.writingStartTime;
-                const minutes = Math.floor(diffMs / 60000);
-                const seconds = Math.floor((diffMs % 60000) / 1000);
-                
-                this.timeCountEl.textContent = `সময়: ${minutes}:${seconds.toString().padStart(2, '0')}`;
-            }
-        }
-
-        // ===== ফর্ম হ্যান্ডলার =====
-        class FormHandler {
-            constructor(domManager, appState) {
-                this.dom = domManager;
-                this.appState = appState;
-                this.initContactMethodToggle();
-            }
-            
-            initContactMethodToggle() {
-                const contactMethod = document.getElementById('contact-method');
-                const telegramField = document.getElementById('telegram-field');
-                const emailField = document.getElementById('email-field');
-                
-                if (!contactMethod) return;
-                
-                contactMethod.addEventListener('change', function() {
-                    const method = this.value;
-                    telegramField.style.display = method === 'telegram' ? 'block' : 'none';
-                    emailField.style.display = method === 'email' ? 'block' : 'none';
-                    
-                    const telegramInput = document.getElementById('telegram-username');
-                    const emailInput = document.getElementById('email');
-                    
-                    if (method === 'telegram') {
-                        telegramInput.required = true;
-                        emailInput.required = false;
-                    } else {
-                        telegramInput.required = false;
-                        emailInput.required = true;
-                    }
-                });
-            }
-            
-            validateForm(form) {
-                let isValid = true;
-                const requiredFields = form.querySelectorAll('[required]');
-                
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.style.borderColor = '#ef4444';
-                    } else {
-                        field.style.borderColor = '';
-                    }
-                });
-                
-                // ইমেইল ভ্যালিডেশন
-                const emailField = document.getElementById('email');
-                if (emailField && emailField.value.trim()) {
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(emailField.value)) {
-                        isValid = false;
-                        emailField.style.borderColor = '#ef4444';
-                        this.dom.showNotification('দয়া করে একটি বৈধ ইমেইল ঠিকানা দিন', CONFIG.NOTIFICATION_TYPES.ERROR);
-                    }
-                }
-                
-                return isValid;
-            }
-            
-            async handleFormSubmit(e) {
-                e.preventDefault();
-                
-                const form = e.target;
-                const submitBtn = form.querySelector('.submit-btn');
-                
-                if (!this.validateForm(form)) {
-                    this.dom.showNotification('দয়া করে সমস্ত প্রয়োজনীয় তথ্য পূরণ করুন', CONFIG.NOTIFICATION_TYPES.ERROR);
-                    return;
-                }
-                
-                // লোডিং স্টেট
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> পাঠানো হচ্ছে...';
-                submitBtn.disabled = true;
-                this.dom.showLoading();
-                
-                try {
-                    // ফর্ম ডেটা সংগ্রহ
-                    const formData = {
-                        name: document.getElementById('preferred-name').value.trim() || 'Anonymous',
-                        sessionType: document.getElementById('session-type').value,
-                        contactMethod: document.getElementById('contact-method').value,
-                        contactInfo: document.getElementById('contact-method').value === 'telegram' 
-                            ? document.getElementById('telegram-username').value.trim()
-                            : document.getElementById('email').value.trim(),
-                        message: document.getElementById('message').value.trim(),
-                        preferredTime: document.getElementById('preferred-time').value.trim(),
-                        timestamp: new Date().toLocaleString('bn-BD', { timeZone: 'Asia/Dhaka' }),
-                        userAgent: navigator.userAgent.substring(0, 100),
-                        theme: this.appState.userSession.theme,
-                        page: this.appState.currentPage
-                    };
-                    
-                    // Google Apps Script-এ ডেটা পাঠানো
-                    if (CONFIG.GOOGLE_SCRIPT_URL && CONFIG.GOOGLE_SCRIPT_URL !== "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
-                        const response = await fetch(CONFIG.GOOGLE_SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formData)
-                        });
-                        
-                        this.dom.showNotification('আপনার অনুরোধ সফলভাবে জমা হয়েছে! ২৪ ঘন্টার মধ্যে যোগাযোগ করা হবে।', CONFIG.NOTIFICATION_TYPES.SUCCESS);
-                    } else {
-                        // ডেমো মোড
-                        console.log('Form Data (Demo Mode):', formData);
-                        this.dom.showNotification('ডেমো মোড: আপনার অনুরধ রেকর্ড করা হয়েছে। আসলে Google Apps Script URL সেট করুন।', CONFIG.NOTIFICATION_TYPES.SUCCESS);
-                    }
-                    
-                    // ফর্ম রিসেট
-                    form.reset();
-                    
-                    // ইউজার নাম সংরক্ষণ
-                    if (formData.name !== 'Anonymous') {
-                        this.appState.userSession.name = formData.name;
-                    }
-                    
-                    // সেশন হিস্ট্রি আপডেট
-                    this.appState.userSession.sessionHistory.push({
-                        type: 'session_request',
-                        data: { ...formData, message: formData.message ? '**প্রাইভেট**' : 'None' },
-                        timestamp: new Date().toISOString()
-                    });
-                    
-                    this.appState.saveToLocalStorage();
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                    this.dom.showNotification('সংযোগ সমস্যা। দয়া করে আবার চেষ্টা করুন।', CONFIG.NOTIFICATION_TYPES.ERROR);
-                    
-                    // ফলব্যাক: ইমেইল
-                    const emailBody = encodeURIComponent(
-                        `নতুন সেশন অনুরোধ:\n\nনাম: ${formData.name}\nসেশন: ${formData.sessionType}\nযোগাযোগ: ${formData.contactMethod} - ${formData.contactInfo}\nপছন্দের সময়: ${formData.preferredTime || 'None'}\nবার্তা: ${formData.message || 'None'}`
-                    );
-                    window.open(`mailto:your-email@example.com?subject=Session Request - The Silent Listener&body=${emailBody}`, '_blank');
-                    
-                } finally {
-                    // লোডিং স্টেট বন্ধ
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    this.dom.hideLoading();
-                }
-            }
-        }
-
-        // ===== পেজ ম্যানেজমেন্ট =====
-        class PageManager {
-            constructor(domManager, appState) {
-                this.dom = domManager;
-                this.appState = appState;
-                this.validPages = ['home', 'about', 'how-it-works', 'sessions', 'reading', 'reflections', 'privacy', 'start'];
-            }
-            
-            showPage(pageId) {
-                if (!this.validPages.includes(pageId) || this.appState.currentPage === pageId) {
-                    return;
-                }
-                
-                // সব পেজ লুকানো
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-                
-                // নতুন পেজ দেখানো
-                const targetPage = document.getElementById(pageId);
-                if (targetPage) {
-                    targetPage.classList.add('active');
-                    this.appState.currentPage = pageId;
-                    this.appState.addToHistory(pageId);
-                    
-                    // URL হ্যাশ আপডেট
-                    window.location.hash = pageId;
-                    
-                    // মোবাইল মেনু বন্ধ
-                    this.dom.elements.menuToggle.classList.remove('active');
-                    this.dom.elements.mobileMenu.classList.remove('active');
-                    
-                    // স্ক্রল টপে নেওয়া
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            }
-            
-            loadPageFromHash() {
-                const hash = window.location.hash.substring(1);
-                
-                if (hash && this.validPages.includes(hash)) {
-                    this.showPage(hash);
-                } else {
-                    this.showPage('home');
-                }
-            }
-        }
-
-        // ===== থিম ম্যানেজার =====
-        class ThemeManager {
-            constructor(domManager, appState) {
-                this.dom = domManager;
-                this.appState = appState;
-            }
-            
-            initTheme() {
-                const savedTheme = localStorage.getItem('theme') || CONFIG.THEMES.LIGHT;
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                this.appState.userSession.theme = savedTheme;
-            }
-            
-            toggleTheme() {
+        // Load page from hash
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) showPage(hash);
+        });
+        
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        });
+        
+        // Theme toggle
+        document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', function() {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === CONFIG.THEMES.LIGHT ? CONFIG.THEMES.DARK : CONFIG.THEMES.LIGHT;
-                
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
                 document.documentElement.setAttribute('data-theme', newTheme);
-                this.appState.userSession.theme = newTheme;
                 localStorage.setItem('theme', newTheme);
                 
-                this.dom.showNotification(`থিম পরিবর্তন করা হয়েছে: ${newTheme === 'dark' ? 'ডার্ক' : 'লাইট'}`, CONFIG.NOTIFICATION_TYPES.SUCCESS);
-            }
+                // Show notification
+                showNotification(`থিম পরিবর্তন করা হয়েছে: ${newTheme === 'dark' ? 'ডার্ক' : 'লাইট'}`, 'success');
+            });
+        });
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Contact method toggle
+        document.getElementById('contact-method').addEventListener('change', function() {
+            const method = this.value;
+            document.getElementById('telegram-field').style.display = method === 'telegram' ? 'block' : 'none';
+            document.getElementById('email-field').style.display = method === 'email' ? 'block' : 'none';
+        });
+        
+        // Show notification function
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
         }
-
-        // ===== রাইটিং এরিয়া ম্যানেজার =====
-        class WritingManager {
-            constructor(domManager, appState) {
-                this.dom = domManager;
-                this.appState = appState;
-                this.autoSaveTimer = null;
-            }
-            
-            init() {
-                this.setupEventListeners();
-                this.loadDraft();
-                this.startWordCountTimer();
-            }
-            
-            setupEventListeners() {
-                if (!this.dom.elements.freeWriting) return;
-                
-                const clearBtn = document.getElementById('clear-writing');
-                const saveBtn = document.getElementById('save-writing');
-                const submitBtn = document.getElementById('submit-writing');
-                
-                // টাইপিং ইভেন্ট
-                this.dom.elements.freeWriting.addEventListener('input', () => {
-                    this.handleWritingInput();
-                });
-                
-                // ক্লিয়ার বাটন
-                clearBtn.addEventListener('click', () => {
-                    this.clearWriting();
-                });
-                
-                // সেভ বাটন
-                saveBtn.addEventListener('click', () => {
-                    this.saveWriting();
-                });
-                
-                // সাবমিট বাটন
-                submitBtn.addEventListener('click', () => {
-                    this.submitWriting();
-                });
-            }
-            
-            handleWritingInput() {
-                const text = this.dom.elements.freeWriting.value;
-                this.dom.updateWritingStats(text);
-                
-                // অটোসেভ
-                clearTimeout(this.autoSaveTimer);
-                this.autoSaveTimer = setTimeout(() => {
-                    localStorage.setItem('freeWritingDraft', text);
-                }, CONFIG.AUTO_SAVE_INTERVAL);
-            }
-            
-            loadDraft() {
-                const draft = localStorage.getItem('freeWritingDraft');
-                if (draft && this.dom.elements.freeWriting) {
-                    this.dom.elements.freeWriting.value = draft;
-                    this.dom.updateWritingStats(draft);
-                    this.dom.showNotification('আপনার আগের লেখাটি লোড করা হয়েছে', CONFIG.NOTIFICATION_TYPES.INFO);
+        
+        // Form submission
+        document.getElementById('session-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showNotification('সেশন রিকোয়েস্ট সাবমিট করা হয়েছে! ২৪ ঘন্টার মধ্যে যোগাযোগ করা হবে।', 'success');
+            this.reset();
+        });
+        
+        // Mood selection
+        document.querySelectorAll('.mood-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.mood-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                localStorage.setItem('daily_mood', this.dataset.mood);
+                localStorage.setItem('mood_date', new Date().toDateString());
+                showNotification('মুড সেভ করা হয়েছে!', 'success');
+            });
+        });
+        
+        // Breathing exercise
+        document.getElementById('start-breathing').addEventListener('click', function() {
+            showNotification('শ্বাস ব্যায়াম শুরু হয়েছে!', 'info');
+            // Add breathing animation logic here
+        });
+        
+        // Navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1);
+                    showPage(pageId);
                 }
-            }
-            
-            clearWriting() {
-                if (this.dom.elements.freeWriting.value.trim() && 
-                    confirm('আপনি কি নিশ্চিত যে আপনি লিখাটি মুছতে চান?')) {
-                    
-                    this.dom.elements.freeWriting.value = '';
-                    localStorage.removeItem('freeWritingDraft');
-                    this.dom.updateWritingStats('');
-                    this.appState.writingStartTime = null;
-                    
-                    this.dom.showNotification('লেখা মুছে ফেলা হয়েছে', CONFIG.NOTIFICATION_TYPES.SUCCESS);
-                }
-            }
-            
-            saveWriting() {
-                const text = this.dom.elements.freeWriting.value.trim();
-                if (text) {
-                    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `silent-listener-${Date.now()}.txt`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                    
-                    this.dom.showNotification('আপনার লেখা ডাউনলোড হয়ে গেছে', CONFIG.NOTIFICATION_TYPES.SUCCESS);
-                } else {
-                    this.dom.showNotification('লেখা কিছু নেই ডাউনলোড করার জন্য', CONFIG.NOTIFICATION_TYPES.WARNING);
-                }
-            }
-            
-            submitWriting() {
-                const text = this.dom.elements.freeWriting.value.trim();
-                if (text) {
-                    const submitBtn = document.getElementById('submit-writing');
-                    const originalText = submitBtn.innerHTML;
-                    
-                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> প্রক্রিয়াকরণ হচ্ছে...';
-                    submitBtn.disabled = true;
-                    
-                    setTimeout(() => {
-                        this.dom.elements.freeWriting.value = '';
-                        localStorage.removeItem('freeWritingDraft');
-                        this.dom.updateWritingStats('');
-                        this.appState.writingStartTime = null;
-                        
-                        submitBtn.innerHTML = '<i class="fas fa-check"></i> ছেড়ে দেওয়া হয়েছে ✓';
-                        
-                        setTimeout(() => {
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.disabled = false;
-                        }, 2000);
-                        
-                        this.dom.showNotification('আপনার কথা ছেড়ে দেওয়া হয়েছে। ধন্যবাদ।', CONFIG.NOTIFICATION_TYPES.SUCCESS);
-                    }, 1500);
-                } else {
-                    this.dom.showNotification('কিছু লিখুন প্রথমে', CONFIG.NOTIFICATION_TYPES.WARNING);
-                }
-            }
-            
-            startWordCountTimer() {
-                if (this.appState.wordCountInterval) {
-                    clearInterval(this.appState.wordCountInterval);
-                }
-                
-                this.appState.wordCountInterval = setInterval(() => {
-                    if (this.dom.elements.freeWriting && this.dom.elements.freeWriting.value.trim()) {
-                        this.dom.updateWritingStats(this.dom.elements.freeWriting.value);
-                    }
-                }, 1000);
-            }
-        }
-
-        // ===== ইভেন্ট ম্যানেজার =====
-        class EventManager {
-            constructor(domManager, appState, pageManager, themeManager, formHandler) {
-                this.dom = domManager;
-                this.appState = appState;
-                this.pageManager = pageManager;
-                this.themeManager = themeManager;
-                this.formHandler = formHandler;
-            }
-            
-            init() {
-                this.setupNavigation();
-                this.setupThemeToggle();
-                this.setupMobileMenu();
-                this.setupFormSubmit();
-                this.setupHashChange();
-                this.setupOfflineDetection();
-            }
-            
-            setupNavigation() {
-                // নেভ লিঙ্কে ক্লিক
-                document.querySelectorAll('a[href^="#"]').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        if (link.getAttribute('href') !== '#') {
-                            e.preventDefault();
-                            const pageId = link.getAttribute('href').substring(1);
-                            this.pageManager.showPage(pageId);
-                        }
-                    });
-                });
-                
-                // মোবাইল মেনু লিঙ্ক
-                document.querySelectorAll('.mobile-menu a:not(.theme-toggle)').forEach(link => {
-                    link.addEventListener('click', () => {
-                        this.dom.elements.menuToggle.classList.remove('active');
-                        this.dom.elements.mobileMenu.classList.remove('active');
-                    });
-                });
-            }
-            
-            setupThemeToggle() {
-                if (this.dom.elements.themeToggle) {
-                    this.dom.elements.themeToggle.addEventListener('click', () => {
-                        this.themeManager.toggleTheme();
-                    });
-                }
-                
-                if (this.dom.elements.mobileThemeToggle) {
-                    this.dom.elements.mobileThemeToggle.addEventListener('click', () => {
-                        this.themeManager.toggleTheme();
-                    });
-                }
-            }
-            
-            setupMobileMenu() {
-                if (this.dom.elements.menuToggle) {
-                    this.dom.elements.menuToggle.addEventListener('click', () => {
-                        this.dom.elements.menuToggle.classList.toggle('active');
-                        this.dom.elements.mobileMenu.classList.toggle('active');
-                    });
-                }
-            }
-            
-            setupFormSubmit() {
-                if (this.dom.elements.sessionForm) {
-                    this.dom.elements.sessionForm.addEventListener('submit', (e) => {
-                        this.formHandler.handleFormSubmit(e);
-                    });
-                }
-            }
-            
-            setupHashChange() {
-                window.addEventListener('hashchange', () => {
-                    this.pageManager.loadPageFromHash();
-                });
-            }
-            
-            setupOfflineDetection() {
-                window.addEventListener('online', () => {
-                    this.dom.showNotification('ইন্টারনেট সংযোগ পুনরুদ্ধার করা হয়েছে', CONFIG.NOTIFICATION_TYPES.SUCCESS);
-                });
-                
-                window.addEventListener('offline', () => {
-                    this.dom.showNotification('আপনি অফলাইন। সংযোগ পুনরুদ্ধার করুন।', CONFIG.NOTIFICATION_TYPES.WARNING);
-                });
-            }
-        }
-
-        // ===== মেইন অ্যাপ্লিকেশন =====
-        class TheSilentListenerApp {
-            constructor() {
-                console.log(`${CONFIG.APP_NAME} v${CONFIG.VERSION} ইনিশিয়ালাইজিং...`);
-                
-                this.appState = new AppState();
-                this.domManager = new DOMManager();
-                this.themeManager = new ThemeManager(this.domManager, this.appState);
-                this.pageManager = new PageManager(this.domManager, this.appState);
-                this.formHandler = new FormHandler(this.domManager, this.appState);
-                this.writingManager = new WritingManager(this.domManager, this.appState);
-                this.eventManager = new EventManager(
-                    this.domManager, 
-                    this.appState, 
-                    this.pageManager, 
-                    this.themeManager, 
-                    this.formHandler
-                );
-            }
-            
-            init() {
-                try {
-                    // থিম সেট আপ
-                    this.themeManager.initTheme();
-                    
-                    // URL থেকে পেজ লোড
-                    this.pageManager.loadPageFromHash();
-                    
-                    // রাইটিং এরিয়া ইনিশিয়ালাইজ
-                    this.writingManager.init();
-                    
-                    // ইভেন্ট লিসেনার সেট আপ
-                    this.eventManager.init();
-                    
-                    // স্বাগতম নোটিফিকেশন
-                    setTimeout(() => {
-                        const lastVisit = this.appState.userSession.lastVisit;
-                        if (!lastVisit) {
-                            this.domManager.showNotification('স্বাগতম! কথা বলা বা না বলা — সবই গ্রহণযোগ্য।', CONFIG.NOTIFICATION_TYPES.INFO);
-                        } else {
-                            const daysAgo = Math.floor((new Date() - new Date(lastVisit)) / (1000 * 60 * 60 * 24));
-                            if (daysAgo > 7) {
-                                this.domManager.showNotification('আবারও স্বাগতম! ভালো লাগছে আপনাকে আবার দেখে।', CONFIG.NOTIFICATION_TYPES.INFO);
-                            }
-                        }
-                    }, 1000);
-                    
-                    // শেষ ভিজিট আপডেট
-                    this.appState.userSession.lastVisit = new Date().toISOString();
-                    this.appState.saveToLocalStorage();
-                    
-                    console.log(`${CONFIG.APP_NAME} সফলভাবে ইনিশিয়ালাইজ হয়েছে`);
-                    
-                } catch (error) {
-                    console.error('অ্যাপ ইনিশিয়ালাইজেশনে ত্রুটি:', error);
-                    this.domManager.showNotification('অ্যাপলিকেশনে একটি ত্রুটি হয়েছে। পৃষ্ঠাটি রিফ্রেশ করুন।', CONFIG.NOTIFICATION_TYPES.ERROR);
-                }
-            }
-        }
-
-        // ===== অ্যাপ চালু =====
-        document.addEventListener('DOMContentLoaded', () => {
-            const app = new TheSilentListenerApp();
-            app.init();
-            
-            // গ্লোবাল ফাংশন যাতে HTML থেকে কল করা যায়
-            window.showPage = (pageId) => app.pageManager.showPage(pageId);
-            window.toggleTheme = () => app.themeManager.toggleTheme();
+            });
         });
     </script>
 </body>
