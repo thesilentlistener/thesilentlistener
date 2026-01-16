@@ -1,0 +1,1157 @@
+/* ===== CSS রিসেট এবং ভেরিয়েবল ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* কালার প্যালেট */
+    --primary-blue: #e0f2fe;      /* হালকা স্কাই ব্লু (ব্যাকগ্রাউন্ড) */
+    --secondary-blue: #0ea5e9;    /* নরম স্কাই ব্লু (অ্যাকসেন্ট) */
+    --dark-blue: #0369a1;         /* গাঢ় ব্লু (হোভার) */
+    --background-white: #f8fafc;  /* অফ-হোয়াইট ব্যাকগ্রাউন্ড */
+    --pure-white: #ffffff;        /* শুদ্ধ সাদা */
+    --text-dark: #334155;         /* সফট স্লেট গ্রে (প্রধান টেক্সট) */
+    --text-light: #64748b;        /* হালকা গ্রে (সাবটেক্সট) */
+    --border-color: #cbd5e1;      /* বর্ডার কালার */
+    --shadow-color: rgba(0, 0, 0, 0.05); /* হালকা ছায়া */
+    
+    /* স্পেসিং */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+    
+    /* টাইপোগ্রাফি */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.125rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+    --font-size-xxxl: 2.5rem;
+    
+    /* অন্যান্য */
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --max-width: 1200px;
+    --content-width: 768px;
+}
+
+/* ===== বেস স্টাইল ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    background-color: var(--background-white);
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* টাইপোগ্রাফি */
+h1, h2, h3, h4 {
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.3px;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: var(--font-size-xxxl);
+    font-weight: 300;
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--dark-blue);
+}
+
+ul, ol {
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+li {
+    margin-bottom: var(--spacing-xs);
+}
+
+strong {
+    font-weight: 500;
+}
+
+small {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+/* ===== লেআউট কম্পোনেন্ট ===== */
+
+/* নেভিগেশন বার */
+.navbar {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(248, 250, 252, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: var(--font-size-xl);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    font-size: var(--font-size-base);
+}
+
+.nav-cta {
+    background-color: var(--secondary-blue);
+    color: var(--pure-white) !important;
+    padding: var(--spacing-xs) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    font-weight: 400;
+}
+
+.nav-cta:hover {
+    background-color: var(--dark-blue);
+    color: var(--pure-white) !important;
+}
+
+/* মোবাইল মেনু টগল বাটন */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+    transition: var(--transition);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* মোবাইল মেনু */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--pure-white);
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    box-shadow: -5px 0 20px var(--shadow-color);
+    z-index: 999;
+    transition: right 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    color: var(--text-dark);
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-menu a.mobile-cta {
+    background-color: var(--secondary-blue);
+    color: var(--pure-white) !important;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-top: var(--spacing-md);
+    border: none;
+}
+
+/* প্রধান কন্টেন্ট এরিয়া */
+#content-area {
+    flex: 1;
+    position: relative;
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* পেজ হেডার */
+.page-header {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-xl);
+    text-align: center;
+}
+
+.page-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg) var(--spacing-xxl);
+}
+
+/* ===== হোম পেজ স্টাইল ===== */
+
+/* হিরো সেকশন */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    max-width: var(--content-width);
+    margin: 0 auto;
+}
+
+.hero-content {
+    margin-bottom: var(--spacing-xl);
+}
+
+.subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+/* বোতাম স্টাইল */
+.btn-primary, .btn-secondary, .btn-outline {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-family: 'Noto Sans Bengali', sans-serif;
+}
+
+.btn-primary {
+    background-color: var(--secondary-blue);
+    color: var(--pure-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-blue);
+    border: 1px solid var(--secondary-blue);
+}
+
+.btn-secondary:hover {
+    background-color: #f0f9ff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+    background-color: #f8fafc;
+    border-color: var(--text-light);
+}
+
+.note {
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+}
+
+/* হিরো ভিজুয়াল */
+.hero-visual {
+    margin-top: var(--spacing-xl);
+}
+
+.visual-placeholder {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ear-bubble {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.ear {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: var(--secondary-blue);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+}
+
+.bubble {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed var(--secondary-blue);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.3;
+}
+
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-xxl);
+    color: var(--secondary-blue);
+    opacity: 0.5;
+}
+
+/* ডেফিনিশন সেকশন */
+.definition-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xxl) auto;
+    max-width: var(--content-width);
+    padding: 0 var(--spacing-lg);
+}
+
+.definition-box {
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    background-color: var(--pure-white);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.what-is {
+    border-top: 4px solid var(--secondary-blue);
+}
+
+.what-is-not {
+    border-top: 4px solid #f1f5f9;
+}
+
+.definition-box h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.definition-box ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.definition-box li {
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.definition-box li:before {
+    position: absolute;
+    left: 0;
+    color: var(--secondary-blue);
+}
+
+.what-is li:before {
+    content: "•";
+}
+
+.what-is-not li:before {
+    content: "×";
+    color: #94a3b8;
+}
+
+/* জরুরি নোটিশ */
+.emergency-notice {
+    max-width: var(--content-width);
+    margin: var(--spacing-xxl) auto;
+    padding: var(--spacing-xl);
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: var(--border-radius);
+    text-align: center;
+    color: #9a3412;
+}
+
+.emergency-number {
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: #dc2626;
+}
+
+/* ===== অন্যান্য পেজ কম্পোনেন্ট ===== */
+
+/* আবাউট পেজ */
+.about-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.about-card {
+    padding: var(--spacing-xl);
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.about-card h2 {
+    color: var(--secondary-blue);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-note {
+    padding: var(--spacing-lg);
+    background-color: #f0f9ff;
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-xl);
+    border-left: 4px solid var(--secondary-blue);
+}
+
+/* হাউ ইট ওয়ার্কস */
+.steps-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+.step {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    align-items: flex-start;
+}
+
+.step-number {
+    background-color: var(--secondary-blue);
+    color: var(--pure-white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.process-note {
+    padding: var(--spacing-lg);
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--border-color);
+}
+
+/* প্রাইসিং পেজ */
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pricing-card {
+    padding: var(--spacing-xl);
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.pricing-card.free {
+    border: 2px solid var(--secondary-blue);
+}
+
+.pricing-header {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.price {
+    font-size: var(--font-size-xxl);
+    font-weight: 300;
+    color: var(--secondary-blue);
+    margin-top: var(--spacing-sm);
+}
+
+.pricing-features {
+    flex: 1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.pricing-features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.pricing-features li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.pricing-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-blue);
+}
+
+.payment-info {
+    padding: var(--spacing-lg);
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    flex-wrap: wrap;
+}
+
+.payment-method {
+    background-color: var(--pure-white);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* রিডিং পেজ */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.book-card {
+    padding: var(--spacing-lg);
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    transition: var(--transition);
+}
+
+.book-card:hover {
+    transform: translateY(-3px);
+}
+
+.book-cover {
+    font-size: var(--font-size-xxxl);
+    flex-shrink: 0;
+}
+
+.book-quote {
+    font-style: italic;
+    color: var(--text-light);
+    margin: var(--spacing-sm) 0;
+}
+
+.book-note {
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.reading-disclaimer {
+    padding: var(--spacing-lg);
+    background-color: #f0f9ff;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-blue);
+}
+
+/* রিফ্লেকশনস পেজ */
+.reflections-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+.reflection {
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.reflection-meta {
+    color: var(--text-light);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.reflection-content {
+    margin-bottom: var(--spacing-lg);
+}
+
+.reflection-questions {
+    padding: var(--spacing-lg);
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--border-color);
+    font-style: italic;
+}
+
+.reflections-note {
+    padding: var(--spacing-lg);
+    background-color: #f0f9ff;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-blue);
+}
+
+/* প্রাইভেসি পেজ */
+.privacy-container {
+    margin-bottom: var(--spacing-xl);
+}
+
+.privacy-section {
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.privacy-section h3 {
+    color: var(--secondary-blue);
+    margin-bottom: var(--spacing-md);
+}
+
+.privacy-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.privacy-section li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.privacy-section li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--secondary-blue);
+}
+
+.privacy-notice {
+    padding: var(--spacing-xl);
+    background-color: #fef2f2;
+    border-radius: var(--border-radius);
+    border-left: 4px solid #ef4444;
+}
+
+.restrictions {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: var(--spacing-md);
+}
+
+.restrictions li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.restrictions li:before {
+    content: "⚠";
+    position: absolute;
+    left: 0;
+    color: #ef4444;
+}
+
+/* স্টার্ট পেজ */
+.start-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.start-info {
+    padding-right: var(--spacing-lg);
+}
+
+.features-list {
+    margin-top: var(--spacing-lg);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-icon {
+    font-size: var(--font-size-xl);
+    width: 40px;
+    text-align: center;
+}
+
+/* ফর্ম স্টাইল */
+.session-form {
+    background-color: var(--pure-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 400;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: var(--font-size-base);
+    background-color: var(--pure-white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-blue);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: var(--font-size-sm);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    margin-top: var(--spacing-md);
+}
+
+.form-note {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+/* রাইটিং স্পেস */
+.writing-space {
+    margin-top: var(--spacing-xxl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-color);
+}
+
+.writing-container {
+    background-color: var(--pure-white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+#free-writing {
+    width: 100%;
+    min-height: 200px;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+    resize: vertical;
+    background-color: #fcfcfc;
+}
+
+#free-writing:focus {
+    outline: none;
+    border-color: var(--secondary-blue);
+    background-color: var(--pure-white);
+}
+
+.writing-controls {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
+}
+
+.writing-info {
+    padding: var(--spacing-md);
+    background-color: #f0f9ff;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-blue);
+}
+
+/* ===== ফুটার ===== */
+.footer {
+    background-color: var(--pure-white);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    margin-top: var(--spacing-xxl);
+}
+
+.footer-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-links a {
+    color: var(--text-dark);
+}
+
+.footer-links a:hover {
+    color: var(--secondary-blue);
+}
+
+.emergency-footer {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: #fef2f2;
+    border-radius: var(--border-radius);
+}
+
+.footer-disclaimer {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    max-width: 800px;
+    margin: var(--spacing-lg) auto;
+    line-height: 1.6;
+    padding: var(--spacing-lg);
+    background-color: #f8fafc;
+    border-radius: var(--border-radius);
+}
+
+.copyright {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: #94a3b8;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* ===== রেসপন্সিভ ডিজাইন ===== */
+@media (max-width: 768px) {
+    /* টাইপোগ্রাফি */
+    h1 {
+        font-size: var(--font-size-xxl);
+    }
+    
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+    
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    /* নেভিগেশন */
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* লেআউট */
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .definition-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .pricing-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .start-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .writing-controls {
+        flex-direction: column;
+    }
+    
+    .writing-controls button {
+        width: 100%;
+    }
+    
+    /* প্যাডিং */
+    .page-header, .page-content {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    .hero, .definition-section {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    /* কার্ড প্যাডিং */
+    .about-card, .pricing-card, .book-card, .reflection, 
+    .privacy-section, .session-form, .writing-container {
+        padding: var(--spacing-lg);
+    }
+    
+    /* ফুটার */
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-lg: 1.25rem;
+        --spacing-xl: 1.75rem;
+        --spacing-xxl: 2.5rem;
+    }
+    
+    h1 {
+        font-size: var(--font-size-xl);
+    }
+    
+    .logo {
+        font-size: var(--font-size-lg);
+    }
+    
+    .visual-placeholder {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* ===== ইউটিলিটি ক্লাস ===== */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+
+.p-1 { padding: var(--spacing-sm); }
+.p-2 { padding: var(--spacing-md); }
+.p-3 { padding: var(--spacing-lg); }
+.p-4 { padding: var(--spacing-xl); }
+
+/* ===== ডার্ক মোড (ঐচ্ছিক) ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-blue: #0c4a6e;
+        --secondary-blue: #38bdf8;
+        --dark-blue: #7dd3fc;
+        --background-white: #0f172a;
+        --pure-white: #1e293b;
+        --text-dark: #e2e8f0;
+        --text-light: #94a3b8;
+        --border-color: #334155;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .emergency-notice {
+        background-color: #451a03;
+        border-color: #9a3412;
+        color: #fdba74;
+    }
+    
+    .privacy-notice {
+        background-color: #450a0a;
+        border-color: #dc2626;
+    }
+    
+    .writing-info {
+        background-color: #0c4a6e;
+        border-color: #38bdf8;
+    }
+    
+    .reading-disclaimer, .reflections-note, .about-note {
+        background-color: #0c4a6e;
+        border-color: #38bdf8;
+    }
+}
