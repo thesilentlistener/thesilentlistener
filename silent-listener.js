@@ -1475,3 +1475,161 @@ document.addEventListener('DOMContentLoaded', () => {
     window.app = new TheSilentListenerApp();
     window.app.init();
 });
+
+// শ্বাস ব্যায়াম ফিক্স
+document.addEventListener('DOMContentLoaded', function() {
+    const startBtn = document.getElementById('start-breathing');
+    const breathCircle = document.querySelector('.breath-circle');
+    const instruction = document.querySelector('.breath-instruction');
+    
+    if (!startBtn || !breathCircle) return;
+    
+    let isBreathing = false;
+    let timeLeft = 60;
+    let breathInterval = null;
+    let breathPhase = 'in'; // 'in', 'hold', 'out'
+    
+    // টাইমার ডিসপ্লে তৈরি
+    const timerHTML = `
+        <div class="breath-timer" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: #0ea5e9;
+            background: rgba(255, 255, 255, 0.9);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        ">
+            <span id="timer-seconds">60</span>
+        </div>
+    `;
+    
+    // টাইমার যোগ করুন
+    const visualContainer = document.querySelector('.breathing-visual');
+    if (visualContainer && !document.querySelector('.breath-timer')) {
+        visualContainer.insertAdjacentHTML('beforeend', timerHTML);
+    }
+    
+    const timerSeconds = document.getElementById('timer-seconds');
+    
+    startBtn.addEventListener('click', function() {
+        if (isBreathing) {
+            // স্টপ
+            stopBreathing();
+        } else {
+            // স্টার্ট
+            startBreathing();
+        }
+    });
+    
+    function startBreathing() {
+        isBreathing = true;
+        timeLeft = 60;
+        breathPhase = 'in';
+        
+        // বাটন আপডেট
+        startBtn.innerHTML = '<i class="fas fa-stop"></i> বন্ধ করুন';
+        startBtn.classList.remove('btn-primary');
+        startBtn.classList.add('btn-secondary');
+        
+        // টাইমার সেট
+        if (timerSeconds) {
+            timerSeconds.textContent = timeLeft;
+        }
+        
+        // অ্যানিমেশন শুরু
+        breathCircle.style.animation = 'breath 8s infinite ease-in-out';
+        
+        // ইনস্ট্রাকশন
+        instruction.textContent = 'শ্বাস নিন...';
+        
+        // নোটিফিকেশন
+        if (window.app && window.app.domManager) {
+            window.app.domManager.showNotification('শ্বাস ব্যায়াম শুরু হয়েছে! ১ মিনিটের জন্য চলবে', 'success');
+        }
+        
+        // টাইমার শুরু
+        breathInterval = setInterval(function() {
+            timeLeft--;
+            
+            // টাইমার আপডেট
+            if (timerSeconds) {
+                timerSeconds.textContent = timeLeft;
+                
+                // শেষ ১০ সেকেন্ডে লাল
+                if (timeLeft <= 10) {
+                    timerSeconds.style.color = '#ef4444';
+                    timerSeconds.parentElement.style.background = 'rgba(254, 202, 202, 0.9)';
+                }
+            }
+            
+            // শ্বাসের ফেজ
+            const cycleTime = (60 - timeLeft) % 8;
+            
+            if (cycleTime < 4) {
+                breathPhase = 'in';
+                instruction.textContent = 'শ্বাস নিন...';
+            } else if (cycleTime < 6) {
+                breathPhase = 'hold';
+                instruction.textContent = 'ধরে রাখুন...';
+            } else {
+                breathPhase = 'out';
+                instruction.textContent = 'ছাড়ুন...';
+            }
+            
+            // শেষ হলে
+            if (timeLeft <= 0) {
+                stopBreathing();
+                
+                // সমাপ্তি নোটিফিকেশন
+                setTimeout(function() {
+                    if (window.app && window.app.domManager) {
+                        window.app.domManager.showNotification('শ্বাস ব্যায়াম সম্পূর্ণ! অনুভূতি কেমন?', 'success');
+                    }
+                }, 500);
+            }
+        }, 1000);
+    }
+    
+    function stopBreathing() {
+        isBreathing = false;
+        
+        // ইন্টারভাল ক্লিয়ার
+        if (breathInterval) {
+            clearInterval(breathInterval);
+            breathInterval = null;
+        }
+        
+        // বাটন রিসেট
+        startBtn.innerHTML = '<i class="fas fa-play"></i> শুরু করুন';
+        startBtn.classList.remove('btn-secondary');
+        startBtn.classList.add('btn-primary');
+        
+        // অ্যানিমেশন স্টপ
+        breathCircle.style.animation = 'none';
+        
+        // ইনস্ট্রাকশন রিসেট
+        instruction.textContent = 'শ্বাস নিন... ধরে রাখুন... ছাড়ুন...';
+        
+        // টাইমার রিসেট
+        if (timerSeconds) {
+            timerSeconds.textContent = '60';
+            timerSeconds.style.color = '#0ea5e9';
+            timerSeconds.parentElement.style.background = 'rgba(255, 255, 255, 0.9)';
+        }
+        
+        // নোটিফিকেশন
+        if (window.app && window.app.domManager) {
+            window.app.domManager.showNotification('শ্বাস ব্যায়াম বন্ধ করা হয়েছে', 'info');
+        }
+    }
+});
